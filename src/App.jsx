@@ -1,80 +1,200 @@
-import './App.css'
+import { useState } from 'react';
+import {
+  AppBar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Drawer,
+  Grid,
+  Toolbar,
+  Typography,
+  Link,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  useTheme,
+  useMediaQuery
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+// Member data
+const members = [
+  { name: 'Kaoru', role: 'Vocal', img: '/images/members/kaoru_vocal.PNG' },
+  { name: 'Yui', role: 'Vocal', img: '/images/members/yui_vocal.PNG' },
+  { name: 'Charlie', role: 'Guitar', img: '/images/members/charlie_guitar.PNG' },
+  { name: 'Yuki', role: 'Base', img: '/images/members/yuki_base.PNG' },
+  { name: 'Gordon', role: 'Drum', img: '/images/members/gordon_drum.PNG' },
+];
+
+// Album data
+const albums = [
+    {
+        title: "SILLY HIKES",
+        releaseDate: "2025/09/01",
+        jacket: "/images/jackets/silly_hikes.PNG"
+    }
+];
+
+const navItems = [
+  { text: 'NEWS', href: '#news' },
+  { text: 'LIVE', href: '#live' },
+  { text: 'BIOGRAPHY', href: '#bio' },
+  { text: 'DISCOGRAPHY', href: '#discography' },
+  { text: 'CONTACT', href: '#contact' },
+];
 
 function App() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        YOKOGAWA FRUIT STORE
+      </Typography>
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.text} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }} href={item.href}>
+              <ListItemText primary={item.text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>YOKOGAWA FRUIT STORE</h1>
-        <nav>
-          <a href="#news">NEWS</a>
-          <a href="#live">LIVE</a>
-          <a href="#bio">BIOGRAPHY</a>
-          <a href="#discography">DISCOGRAPHY</a>
-          <a href="#contact">CONTACT</a>
-        </nav>
-      </header>
+    <Box>
+      <AppBar position="sticky">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
+            YOKOGAWA FRUIT STORE
+          </Typography>
+          {isMobile ? (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <Box>
+              {navItems.map((item) => (
+                <Button key={item.text} color="inherit" href={item.href}>{item.text}</Button>
+              ))}
+            </Box>
+          )}
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+        }}
+      >
+        {drawer}
+      </Drawer>
 
-      <main>
-        <section id="news">
-          <h2>NEWS</h2>
-          <p>New album "SILLY HIKES" will be released on 2025/09/01!</p>
-        </section>
+      <Container sx={{ py: 4 }}>
+        <main>
+          <Box id="news" sx={{ my: 8, textAlign: 'center' }}>
+            <Typography variant="h2" gutterBottom>NEWS</Typography>
+            <Typography variant="h5">
+              New album "SILLY HIKES" will be released on 2025/09/01!
+            </Typography>
+          </Box>
 
-        <section id="live">
-          <h2>LIVE</h2>
-          <p>Next live: 2025/12/24 at Higashi-Fushimi Station</p>
-        </section>
+          <Box id="live" sx={{ my: 8, textAlign: 'center' }}>
+            <Typography variant="h2" gutterBottom>LIVE</Typography>
+            <Typography variant="h5">
+              Next live: 2025/12/24 at Higashi-Fushimi Station
+            </Typography>
+          </Box>
 
-        <section id="bio">
-          <h2>BIOGRAPHY</h2>
-          <p>
-            YOKOGAWA FRUIT STORE is a rock band formed on August 10, 2025.
-            We deliver fresh and juicy music from Yokogawa.
-          </p>
-          <div className="members">
-            <div className="member">
-              <img src="/images/members/kaoru_vocal.PNG" alt="Kaoru" />
-              <p>Kaoru (Vocal)</p>
-            </div>
-            <div className="member">
-              <img src="/images/members/yui_vocal.PNG" alt="Yui" />
-              <p>Yui (Vocal)</p>
-            </div>
-            <div className="member">
-              <img src="/images/members/charlie_guitar.PNG" alt="Charlie" />
-              <p>Charlie (Guitar)</p>
-            </div>
-            <div className="member">
-              <img src="/images/members/yuki_base.PNG" alt="Yuki" />
-              <p>Yuki (Base)</p>
-            </div>
-            <div className="member">
-              <img src="/images/members/gordon_drum.PNG" alt="Gordon" />
-              <p>Gordon (Drum)</p>
-            </div>
-          </div>
-        </section>
+          <Box id="bio" sx={{ my: 8, textAlign: 'center' }}>
+            <Typography variant="h2" gutterBottom>BIOGRAPHY</Typography>
+            <Typography variant="body1" sx={{ mb: 4 }}>
+              YOKOGAWA FRUIT STORE is a rock band formed on August 10, 2025.
+              We deliver fresh and juicy music from Yokogawa.
+            </Typography>
+            <Grid container spacing={4} justifyContent="center">
+              {members.map((member) => (
+                <Grid item key={member.name} xs={12} sm={4} md={2.4}>
+                  <Card sx={{ textAlign: 'center', height: '100%' }}>
+                    <CardMedia
+                      component="img"
+                      height="150"
+                      image={member.img}
+                      alt={member.name}
+                      sx={{ borderRadius: '50%', width: 150, height: 150, margin: 'auto', mt: 2 }}
+                    />
+                    <CardContent>
+                      <Typography variant="h6">{member.name}</Typography>
+                      <Typography variant="body2" color="text.secondary">{member.role}</Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
 
-        <section id="discography">
-          <h2>DISCOGRAPHY</h2>
-          <div className="album">
-            <img src="/images/jackets/silly_hikes.PNG" alt="SILLY HIKES album jacket" />
-            <h3>SILLY HIKES</h3>
-            <p>Release Date: 2025/09/01</p>
-          </div>
-        </section>
+          <Box id="discography" sx={{ my: 8, textAlign: 'center' }}>
+            <Typography variant="h2" gutterBottom>DISCOGRAPHY</Typography>
+            <Grid container spacing={4} justifyContent="center">
+                {albums.map((album) => (
+                    <Grid item key={album.title}>
+                        <Card sx={{ width: 300 }}>
+                            <CardMedia
+                                component="img"
+                                height="300"
+                                image={album.jacket}
+                                alt={`${album.title} album jacket`}
+                            />
+                            <CardContent>
+                                <Typography variant="h5">{album.title}</Typography>
+                                <Typography variant="body1" color="text.secondary">
+                                    Release Date: {album.releaseDate}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                ))}
+            </Grid>
+          </Box>
 
-        <section id="contact">
-            <h2>CONTACT</h2>
-            <p>For booking and inquiries, please email: contact@yokogawa-fruit.store</p>
-        </section>
-      </main>
+          <Box id="contact" sx={{ my: 8, textAlign: 'center' }}>
+            <Typography variant="h2" gutterBottom>CONTACT</Typography>
+            <Typography variant="body1">
+              For booking and inquiries, please email: <Link href="mailto:contact@yokogawa-fruit.store">contact@yokogawa-fruit.store</Link>
+            </Typography>
+          </Box>
+        </main>
+      </Container>
 
-      <footer className="App-footer">
-        <p>&copy; {new Date().getFullYear()} YOKOGAWA FRUIT STORE. All Rights Reserved.</p>
-      </footer>
-    </div>
-  )
+      <Box component="footer" sx={{ py: 3, textAlign: 'center', backgroundColor: 'background.paper', mt: 4 }}>
+        <Typography variant="body2" color="text.secondary">
+          &copy; {new Date().getFullYear()} YOKOGAWA FRUIT STORE. All Rights Reserved.
+        </Typography>
+      </Box>
+    </Box>
+  );
 }
 
-export default App
+export default App;
