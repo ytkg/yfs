@@ -48,6 +48,12 @@ const navItems = [
   { text: 'CONTACT', href: '#contact' },
 ];
 
+const sectionStyles = {
+  my: 8,
+  textAlign: 'center',
+  scrollMarginTop: { xs: '56px', sm: '64px' },
+};
+
 function App() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -114,21 +120,21 @@ function App() {
 
       <Container sx={{ py: 4 }}>
         <main>
-          <Box id="news" sx={{ my: 8, textAlign: 'center' }}>
+          <Box id="news" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>NEWS</Typography>
             <Typography variant="h5">
               New album "SILLY HIKES" will be released on 2025/09/01!
             </Typography>
           </Box>
 
-          <Box id="live" sx={{ my: 8, textAlign: 'center' }}>
+          <Box id="live" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>LIVE</Typography>
             <Typography variant="h5">
               Next live: 2025/12/24 at Higashi-Fushimi Station
             </Typography>
           </Box>
 
-          <Box id="bio" sx={{ my: 8, textAlign: 'center' }}>
+          <Box id="bio" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>BIOGRAPHY</Typography>
             <Typography variant="body1" sx={{ mb: 4 }}>
               YOKOGAWA FRUIT STORE is a rock band formed on August 10, 2025.
@@ -137,13 +143,13 @@ function App() {
             <Grid container spacing={4} justifyContent="center">
               {members.map((member) => (
                 <Grid item key={member.name} xs={12} sm={4} md={2.4}>
-                  <Card sx={{ textAlign: 'center', height: '100%' }}>
+                  <Card sx={{ textAlign: 'center', height: '100%', p: 2 }}>
                     <CardMedia
                       component="img"
                       height="150"
                       image={member.img}
                       alt={member.name}
-                      sx={{ borderRadius: '50%', width: 150, height: 150, margin: 'auto', mt: 2 }}
+                      sx={{ borderRadius: '50%', width: 150, height: 150, margin: 'auto' }}
                     />
                     <CardContent>
                       <Typography variant="h6">{member.name}</Typography>
@@ -155,7 +161,7 @@ function App() {
             </Grid>
           </Box>
 
-          <Box id="discography" sx={{ my: 8, textAlign: 'center' }}>
+          <Box id="discography" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>DISCOGRAPHY</Typography>
             <Grid container spacing={4} justifyContent="center">
                 {albums.map((album) => (
@@ -179,7 +185,7 @@ function App() {
             </Grid>
           </Box>
 
-          <Box id="contact" sx={{ my: 8, textAlign: 'center' }}>
+          <Box id="contact" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>CONTACT</Typography>
             <Typography variant="body1">
               For booking and inquiries, please email: <Link href="mailto:contact@yokogawa-fruit.store">contact@yokogawa-fruit.store</Link>
