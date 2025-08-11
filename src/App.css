@@ -21,6 +21,34 @@
   padding-right: 2rem;
 }
 
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.member {
+  text-align: center;
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.album {
+  text-align: center;
+}
+
+.album img {
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
 .App-header h1 {
     margin: 0;
     font-size: 2.5rem;

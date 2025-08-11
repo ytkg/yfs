@@ -17,7 +17,7 @@ function App() {
       <main>
         <section id="news">
           <h2>NEWS</h2>
-          <p>New album "Midnight Grapefruit" coming soon!</p>
+          <p>New album "SILLY HIKES" will be released on 2025/09/01!</p>
         </section>
 
         <section id="live">
@@ -31,12 +31,37 @@ function App() {
             YOKOGAWA FRUIT STORE is a rock band formed in 2023.
             We deliver fresh and juicy music from Yokogawa.
           </p>
-          <p>There are no images of the members yet. Please add them to `public/images/members`.</p>
+          <div className="members">
+            <div className="member">
+              <img src="/images/members/kaoru_vocal.PNG" alt="Kaoru" />
+              <p>Kaoru (Vocal)</p>
+            </div>
+            <div className="member">
+              <img src="/images/members/yui_vocal.PNG" alt="Yui" />
+              <p>Yui (Vocal)</p>
+            </div>
+            <div className="member">
+              <img src="/images/members/charlie_guitar.PNG" alt="Charlie" />
+              <p>Charlie (Guitar)</p>
+            </div>
+            <div className="member">
+              <img src="/images/members/yuki_base.PNG" alt="Yuki" />
+              <p>Yuki (Base)</p>
+            </div>
+            <div className="member">
+              <img src="/images/members/gordon_drum.PNG" alt="Gordon" />
+              <p>Gordon (Drum)</p>
+            </div>
+          </div>
         </section>
 
         <section id="discography">
           <h2>DISCOGRAPHY</h2>
-          <p>There are no jacket images yet. Please add them to `public/images/jackets`.</p>
+          <div className="album">
+            <img src="/images/jackets/silly_hikes.PNG" alt="SILLY HIKES album jacket" />
+            <h3>SILLY HIKES</h3>
+            <p>Release Date: 2025/09/01</p>
+          </div>
         </section>
 
         <section id="contact">
