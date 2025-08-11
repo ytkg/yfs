@@ -140,24 +140,44 @@ function App() {
               YOKOGAWA FRUIT STORE is a rock band formed on August 10, 2025.
               We deliver fresh and juicy music from Yokogawa.
             </Typography>
-            <Grid container spacing={4} justifyContent="center">
-              {members.map((member) => (
-                <Grid item key={member.name} xs={12} sm={6}>
-                  <Card sx={{ display: 'flex', alignItems: 'center', width: '100%', p: 2 }}>
-                    <CardMedia
-                      component="img"
-                      image={member.img}
-                      alt={member.name}
-                      sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
-                    />
-                    <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
-                      <Typography variant="h6">{member.name}</Typography>
-                      <Typography variant="body2" color="text.secondary">{member.role}</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
+            <Box>
+              <Grid container spacing={4} justifyContent="center">
+                {members.slice(0, 2).map((member) => (
+                  <Grid item key={member.name} xs={12} sm={6}>
+                    <Card sx={{ display: 'flex', alignItems: 'center', width: '100%', p: 2, height: '100%' }}>
+                      <CardMedia
+                        component="img"
+                        image={member.img}
+                        alt={member.name}
+                        sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
+                      />
+                      <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
+                        <Typography variant="h6">{member.name}</Typography>
+                        <Typography variant="body2" color="text.secondary">{member.role}</Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+              <Grid container spacing={4} justifyContent="center" sx={{ mt: 4 }}>
+                {members.slice(2).map((member) => (
+                  <Grid item key={member.name} xs={12} sm={4}>
+                    <Card sx={{ display: 'flex', alignItems: 'center', width: '100%', p: 2, height: '100%' }}>
+                      <CardMedia
+                        component="img"
+                        image={member.img}
+                        alt={member.name}
+                        sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
+                      />
+                      <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
+                        <Typography variant="h6">{member.name}</Typography>
+                        <Typography variant="body2" color="text.secondary">{member.role}</Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
           </Box>
 
           <Box id="discography" sx={sectionStyles}>
