@@ -142,16 +142,15 @@ function App() {
             </Typography>
             <Grid container spacing={4} justifyContent="center">
               {members.map((member) => (
-                <Grid item key={member.name} xs={12} sm={4} md={2.4}>
-                  <Card sx={{ textAlign: 'center', height: '100%', p: 2 }}>
+                <Grid item key={member.name} xs={12} sm={6}>
+                  <Card sx={{ display: 'flex', alignItems: 'center', width: '100%', p: 2 }}>
                     <CardMedia
                       component="img"
-                      height="150"
                       image={member.img}
                       alt={member.name}
-                      sx={{ borderRadius: '50%', width: 150, height: 150, margin: 'auto' }}
+                      sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
                     />
-                    <CardContent>
+                    <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
                       <Typography variant="h6">{member.name}</Typography>
                       <Typography variant="body2" color="text.secondary">{member.role}</Typography>
                     </CardContent>
