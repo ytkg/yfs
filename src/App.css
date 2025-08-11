@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* Remove max-width and auto margin to allow full-width */
+  padding: 0; /* Remove root padding, will handle padding on a per-section basis */
 }
 
 .App {
@@ -10,15 +9,10 @@
 
 .App-header {
   background-color: #282c34;
-  padding: 20px;
+  padding: 20px 2rem; /* Use padding for spacing */
   color: white;
   margin-bottom: 2rem;
-  /* The header should span the full width, so we use negative margins to counteract the padding from #root */
-  margin-left: -2rem;
-  margin-right: -2rem;
-  margin-top: -2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  /* Removed negative margins */
 }
 
 .App-header h1 {
@@ -46,6 +40,7 @@
 
 main section {
   margin-bottom: 3rem;
+  padding: 0 2rem; /* Add horizontal padding to sections */
 }
 
 main h2 {
@@ -86,21 +81,24 @@ main h2 {
 
 .App-footer {
   margin-top: 3rem;
-  padding: 1rem;
+  padding: 1rem 2rem; /* Use padding for spacing */
   background-color: #f7f7f7;
   border-top: 1px solid #ddd;
   font-size: 0.9rem;
   color: #555;
-  /* The footer should also span the full width */
-  margin-left: -2rem;
-  margin-right: -2rem;
-  margin-bottom: -2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  /* Removed negative margins */
 }
 
 @media (max-width: 768px) {
-  #root {
+  main section {
+    padding: 0 1rem; /* Adjust padding for mobile */
+  }
+
+  .App-header {
+    padding: 20px 1rem;
+  }
+
+  .App-footer {
     padding: 1rem;
   }
 

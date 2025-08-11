@@ -22,13 +22,13 @@ function App() {
 
         <section id="live">
           <h2>LIVE</h2>
-          <p>Next live: 2025/12/24 at Shibuya WWW</p>
+          <p>Next live: 2025/12/24 at Higashi-Fushimi Station</p>
         </section>
 
         <section id="bio">
           <h2>BIOGRAPHY</h2>
           <p>
-            YOKOGAWA FRUIT STORE is a rock band formed in 2023.
+            YOKOGAWA FRUIT STORE is a rock band formed on August 10, 2025.
             We deliver fresh and juicy music from Yokogawa.
           </p>
           <div className="members">
