@@ -11,14 +11,14 @@ import {
   Grid,
   Toolbar,
   Typography,
-  Link,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  TextField
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -187,9 +187,37 @@ function App() {
 
           <Box id="contact" sx={sectionStyles}>
             <Typography variant="h2" gutterBottom>CONTACT</Typography>
-            <Typography variant="body1">
-              For booking and inquiries, please email: <Link href="mailto:contact@yokogawa-fruit.store">contact@yokogawa-fruit.store</Link>
-            </Typography>
+            <Box component="form" sx={{ maxWidth: '600px', mx: 'auto', mt: 4 }}>
+              <TextField
+                fullWidth
+                label="Your Name"
+                variant="outlined"
+                margin="normal"
+              />
+              <TextField
+                fullWidth
+                label="Your Email"
+                variant="outlined"
+                margin="normal"
+                type="email"
+              />
+              <TextField
+                fullWidth
+                label="Message"
+                variant="outlined"
+                margin="normal"
+                multiline
+                rows={4}
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                sx={{ mt: 2 }}
+              >
+                Send Message
+              </Button>
+            </Box>
           </Box>
         </main>
       </Container>
