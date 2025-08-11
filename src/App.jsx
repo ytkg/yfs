@@ -151,9 +151,9 @@ function App() {
                         alt={member.name}
                         sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
                       />
-                      <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
+                      <CardContent sx={{ flex: '1 1 auto', pl: 2 }}>
                         <Typography variant="h6">{member.name}</Typography>
-                        <Typography variant="body2" color="text.secondary">{member.role}</Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'right' }}>{member.role}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
@@ -169,9 +169,9 @@ function App() {
                         alt={member.name}
                         sx={{ borderRadius: '50%', width: 120, height: 120, flexShrink: 0 }}
                       />
-                      <CardContent sx={{ flex: '1 1 auto', textAlign: 'left', pl: 2 }}>
+                      <CardContent sx={{ flex: '1 1 auto', pl: 2 }}>
                         <Typography variant="h6">{member.name}</Typography>
-                        <Typography variant="body2" color="text.secondary">{member.role}</Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'right' }}>{member.role}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
