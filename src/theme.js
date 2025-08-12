@@ -2,16 +2,16 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#90caf9', // A light blue, good for accents in a dark theme
+      main: '#1976d2',
     },
     secondary: {
-      main: '#f48fb1', // A light pink, for other accents
+      main: '#dc004e',
     },
     background: {
-      default: '#121212', // A standard dark background
-      paper: '#1e1e1e',   // A slightly lighter background for surfaces like cards
+      default: '#ffffff',
+      paper: '#f5f5f5',
     },
   },
   typography: {
